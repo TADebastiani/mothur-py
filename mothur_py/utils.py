@@ -7,7 +7,7 @@ For full license terms see LICENSE.txt
 
 """
 
-import collections
+from collections.abc import Sequence
 
 
 def format_mothur_params(*args, **kwargs):
@@ -60,7 +60,7 @@ def convert_mothur_iterable(item):
     """Converts python iterable into a format that is compatible with mothur."""
 
     # convert python iterable, excluding strings, to mothur list
-    if isinstance(item, collections.Sequence) and not isinstance(item, str):
+    if isinstance(item, Sequence) and not isinstance(item, str):
         # mothur lists are hyphen separated
         return ('-').join(item)
     else:
